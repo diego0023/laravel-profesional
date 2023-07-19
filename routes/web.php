@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +31,10 @@ use Illuminate\Support\Facades\Route;
 /*  Route::view('/','landing.index')->name('index');
  Route::view('/about','landing.about')->name('about'); */
 
- Route::view('/','index')->name('index');
+ /* Route::view('/','index')->name('index');
  Route::view('/about','about')->name('about');
  Route::view('/services','services')->name('services');
- Route::view('/contact','contact')->name('contact');
+ Route::view('/contact','contact')->name('contact'); */
+
+Route::get('/', [UserController::class, 'index'])->name('user.index');
+Route::get('/create',[UserController::class, 'create'] )->name('user.create');
