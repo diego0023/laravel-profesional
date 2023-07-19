@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,5 +37,15 @@ use Illuminate\Support\Facades\Route;
  Route::view('/services','services')->name('services');
  Route::view('/contact','contact')->name('contact'); */
 
-Route::get('/', [UserController::class, 'index'])->name('user.index');
+/* Route::get('/', [UserController::class, 'index'])->name('user.index');
 Route::get('/create',[UserController::class, 'create'] )->name('user.create');
+ */
+
+ Route::get('/note', [NoteController::class, 'index'])->name('note.index');
+ Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
+ Route::post('/note/store', [NoteController::class, 'store'])->name('note.store');
+ Route::get('/note/edit/{note}',  [NoteController::class, 'edit'])->name('note.edit');
+ Route::put('/note/update/{note}',  [NoteController::class, 'update'])->name('note.update');
+ Route::get('/note/show/{note}',  [NoteController::class, 'show'])->name('note.show');
+ Route::delete('/note/destroy/{note}',[NoteController::class, 'destroy'])->name('note.destroy');
+

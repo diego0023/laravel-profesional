@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->string('description', 255)->nullable();
-            $table->date('deadline');
-            $table->boolean('done')->default(false);
+            $table->string('title');
+            $table->string('description');
             $table->timestamps();
         });
     }
