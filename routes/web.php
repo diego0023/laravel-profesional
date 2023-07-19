@@ -49,3 +49,5 @@ Route::get('/create',[UserController::class, 'create'] )->name('user.create');
  Route::get('/note/show/{note}',  [NoteController::class, 'show'])->name('note.show');
  Route::delete('/note/destroy/{note}',[NoteController::class, 'destroy'])->name('note.destroy');
 
+ /* Route::resource('/post',PostController::class); */
+
