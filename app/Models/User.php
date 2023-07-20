@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -64,8 +65,8 @@ class User extends Authenticatable
         return $this->hasManyThrough(Sim::class, Phone::class);
     }
 
-    public function image(): MorphOne{
-        return $this->morphOne(Image::class, 'imageable');
+    public function image(): MorphMany{
+        return $this->morphMany(Image::class, 'imageable');
     }
 
 }
