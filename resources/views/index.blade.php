@@ -7,6 +7,7 @@
     <title>Relaciones</title>
 </head>
 <body>
+    <h3>{{ $user->phoneSim->company}}</h3>
     <ul>
         @foreach ($user->roles as $role)
             <li>ROle: {{ $role->name }} Addedby: {{$role->pivot->added_by}}</li>
