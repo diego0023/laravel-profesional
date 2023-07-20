@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostController extends Controller
 {
 
-    public function index(): JsonResponse
+    public function index(): JsonResource
     {
-        return  response()->json(Post::all(), 200);
+        // return  response()->json(Post::all(), 200);
+        return PostResource::collection(Post::all());
     }
 
     public function store(PostRequest $request): JsonResponse
@@ -24,10 +27,11 @@ class PostController extends Controller
         ], 201);
     }
 
-    public function show(string $id): JsonResponse
+    public function show(string $id): JsonResource
     {
         $post = Post::find($id);
-        return response()->json($post, 200);
+        // return response()->json($post, 200);
+        return new PostResource($post);
     }
 
     public function update(PostRequest $request, string $id): JsonResponse
