@@ -7,7 +7,11 @@
     <title>Relaciones</title>
 </head>
 <body>
-    <h1>Prefix: {{ $user->phone->prefix }}</h1>
-    <h1>Number: {{ $user->phone->phone_number }}</h1>
+    <ul>
+        @foreach ($user->phones as $phone)
+            <li>Prefix: {{ $phone->prefix }}</li>
+            <li>Number: {{ $phone->phone_number }}</li>
+        @endforeach
+    </ul>
 </body>
 </html>
