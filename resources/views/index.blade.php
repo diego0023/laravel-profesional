@@ -8,9 +8,8 @@
 </head>
 <body>
     <ul>
-        @foreach ($user->phones as $phone)
-            <li>Prefix: {{ $phone->prefix }}</li>
-            <li>Number: {{ $phone->phone_number }}</li>
+        @foreach ($user->roles as $role)
+            <li>ROle: {{ $role->name }} Addedby: {{$role->pivot->added_by}}</li>
         @endforeach
     </ul>
 </body>
