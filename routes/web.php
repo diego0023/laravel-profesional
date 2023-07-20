@@ -50,4 +50,5 @@ Route::get('/create',[UserController::class, 'create'] )->name('user.create');
  Route::delete('/note/destroy/{note}',[NoteController::class, 'destroy'])->name('note.destroy');
 
  /* Route::resource('/post',PostController::class); */
+ Route::get('/', [UserController::class, 'index'])->name('index');
 
