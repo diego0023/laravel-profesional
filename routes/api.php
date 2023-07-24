@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Resources\UserResource;
@@ -17,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/post', PostController::class);
+/* Route::resource('/post', PostController::class);
 Route::get('/user', function(Request $request){
     return new UserResource(User::find(1));
-});
+}); */
 
+Route::middleware('example')->get('/', [ExampleController::class, 'index']);
+Route::get('/no-acces', [ExampleController::class, 'noAcces'] )->name('no-acces');
