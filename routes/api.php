@@ -24,15 +24,8 @@ Route::get('/user', function(Request $request){
 }); */
 
 
+
 Route::get('/no-acces', [ExampleController::class, 'noAcces'] )->name('no-acces');
+Route::get('/', [ExampleController::class, 'index']);
 
 
-
-Route::middleware(['example', 'admin', 'auth'])->group(function(){
-    Route::get('/', [ExampleController::class, 'index']);
-    Route::get('/', [ExampleController::class, 'index']);
-    Route::get('/', [ExampleController::class, 'index'])->withoutMiddleware('admin');
-    Route::get('/', [ExampleController::class, 'index']);
-    Route::get('/', [ExampleController::class, 'index']);
-    Route::get('/', [ExampleController::class, 'index']);
-});
