@@ -23,5 +23,16 @@ Route::get('/user', function(Request $request){
     return new UserResource(User::find(1));
 }); */
 
-Route::middleware('example')->get('/', [ExampleController::class, 'index']);
+
 Route::get('/no-acces', [ExampleController::class, 'noAcces'] )->name('no-acces');
+
+
+
+Route::middleware(['example', 'admin', 'auth'])->group(function(){
+    Route::get('/', [ExampleController::class, 'index']);
+    Route::get('/', [ExampleController::class, 'index']);
+    Route::get('/', [ExampleController::class, 'index'])->withoutMiddleware('admin');
+    Route::get('/', [ExampleController::class, 'index']);
+    Route::get('/', [ExampleController::class, 'index']);
+    Route::get('/', [ExampleController::class, 'index']);
+});
