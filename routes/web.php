@@ -3,6 +3,7 @@
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,15 +41,19 @@ use Illuminate\Support\Facades\Route;
 /* Route::get('/', [UserController::class, 'index'])->name('user.index');
 Route::get('/create',[UserController::class, 'create'] )->name('user.create');
  */
-
+/*
  Route::get('/note', [NoteController::class, 'index'])->name('note.index');
  Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
  Route::post('/note/store', [NoteController::class, 'store'])->name('note.store');
  Route::get('/note/edit/{note}',  [NoteController::class, 'edit'])->name('note.edit');
  Route::put('/note/update/{note}',  [NoteController::class, 'update'])->name('note.update');
  Route::get('/note/show/{note}',  [NoteController::class, 'show'])->name('note.show');
- Route::delete('/note/destroy/{note}',[NoteController::class, 'destroy'])->name('note.destroy');
+ Route::delete('/note/destroy/{note}',[NoteController::class, 'destroy'])->name('note.destroy'); */
 
  /* Route::resource('/post',PostController::class); */
- Route::get('/', [UserController::class, 'index'])->name('index');
+/*  Route::get('/', [UserController::class, 'index'])->name('index'); */
+
+Route::get('/', [MailController::class, 'index'])->name('index');
+Route::get('/mailme', [MailController::class, 'mailMe'])->name('mailme');
+
 
